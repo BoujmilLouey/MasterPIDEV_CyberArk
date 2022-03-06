@@ -1,0 +1,69 @@
+{% extends 'base_FRONT_LOG.html.twig' %}
+
+{% block title %}
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{asset('frontoffice/img/fav.png')}}" />
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib" />
+    <!-- Meta Description -->
+    <meta name="description" content="" />
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="" />
+    <!-- meta character set -->
+    <meta charset="UTF-8" />
+    <!-- Site Title -->
+    <title>Learn4u-Reset password</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Roboto:400,400i,500,700" rel="stylesheet" />
+    <!--
+        CSS
+        =============================================
+      -->
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/linearicons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/font-awesome.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/magnific-popup.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/owl.carousel.css') }}" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/hexagons.min.css') }}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css" />
+    <link rel="stylesheet" href="{{ asset('frontoffice/css/main.css') }}" />
+{% endblock %}
+{% block home1 %}
+    {% for flashError in app.flashes('reset_password_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <h1 class="text-white">Reset your password</h1>
+
+    {{ form_start(requestForm) }}
+          <tr>
+              <td class="text-white">{{ form_label(requestForm.email,"Email :") }}</td>
+              <td class="text-white">{{ form_widget(requestForm.email) }}</td>
+              <td class="text-white">{{ form_errors(requestForm.email) }}</td>
+          </tr>
+        <div>
+            <small class="text-white">
+                Enter your email address and we will send you a
+                link to reset your password.
+            </small>
+        </div>
+
+        <button class="btn ">Send password reset email</button>
+    {{ form_end(requestForm) }}
+{% endblock %}
+{% block feature %}
+{% endblock %}
+{% block popularcourses %}
+{% endblock %}
+{% block video %}
+{% endblock %}
+{% block categories %}
+{% endblock %}
+{% block testimonials %}
+{% endblock %}
+{% block register %}
+{% endblock %}
+{% block ads %}
+{% endblock %}

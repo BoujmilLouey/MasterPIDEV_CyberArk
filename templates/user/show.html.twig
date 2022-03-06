@@ -1,0 +1,72 @@
+{% extends 'base_BACK.html.twig' %}
+
+{% block title %}Users List{% endblock %}
+
+{% block back_content %}
+    <h1>User</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Full name</th>
+                <td>{{ user.fullname }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.Username }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Birthday</th>
+                <td>{{ user.naissance|date("m/d/y")  }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Is verified ?</th>
+                <td>{{ user.isVerified ?'YES':'NO' }}</td>
+            </tr>
+            <tr>
+                <th>Is Banned ?</th>
+                <td>{{ user.isBanned ?'YES':'NO' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+    <table class="table">
+           <tbody>
+<tr>
+    <th>{% if user.isBanned is not empty and user.isBanned%}
+            {{ include('user/_unban_form.html.twig') }}
+        {% else %}
+            {{ include('user/_ban_form.html.twig') }}
+        {% endif %}
+    </th>
+    <td>{{ include('user/_delete_form.html.twig') }}</td>
+</tr>
+
+
+
+          </tbody>
+    </table>
+
+{% endblock %}
+{% block back_footer %}
+{% endblock %}
+

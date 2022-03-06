@@ -1,0 +1,38 @@
+{{ form_start(form)}}
+<table>
+    <tr>
+        <td>{{ form_label(form.fullname,"Full name :") }}</td>
+        <td>{{ form_widget(form.fullname) }}</td>
+        <td class="text-black">{{ form_errors(form.fullname) }}</td>
+    </tr>
+    <tr>
+    <td>{{ form_label(form.email,"Email :") }}</td>
+    <td>{{ form_widget(form.email) }}</td>
+    <td class="text-black">{{ form_errors(form.email) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.Username,"Username :") }}</td>
+        <td>{{ form_widget(form.Username) }}</td>
+        <td class="text-black">{{ form_errors(form.Username) }}</td>
+    </tr>
+    <tr>
+    <td>{{ form_label(form.roles,"role :    ") }}</td>
+    <td>{{ form_widget(form.roles) }}</td>
+    <td class="text-black">{{ form_errors(form.roles) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.plainPassword,"Password :") }}</td>
+        <td>{{ form_widget(form.plainPassword) }}</td>
+        <td class="text-black">{{ form_errors(form.plainPassword) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.naissance ,"Birthday :") }}</td>
+        <td>{{ form_widget(form.naissance) }}</td>
+        <td class="text-black">{{ form_errors(form.naissance) }}</td>
+    </tr>
+    <tr>
+    <td>{{ form_label(form.Submit) }}</td>
+    <td>{{ form_widget(form.Submit) }}<tr>
+    </tr>
+</table>
+{{ form_end(form) }}
