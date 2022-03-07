@@ -82,7 +82,7 @@ class SecurityController extends AbstractController
 
               $this->emailVerifier->sendEmailConfirmation('app_verify_email2', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('noreply.learn4u@gmail.com', 'learn4u mail Bot'))
+                    ->from(new Address('noreply.cyberark@gmail.com', 'CyberARK mail Bot'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
