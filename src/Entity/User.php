@@ -53,7 +53,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
-     *  @Assert\Length(
+     * @Assert\Length(
      *      min = 4,
      *      max = 12,
      *      minMessage = "Your first name must be at least {{ limit }} characters long",
@@ -68,7 +68,7 @@ class User implements UserInterface
      * @Assert\NotBlank
      * @Assert\Regex(
      *     pattern     = "/^[a-zA-Z]+ [a-zA-Z]+/",
-     * )
+     * message = " please enter your full name with a space .")
      * @Groups("user")
      */
     private $fullname;
