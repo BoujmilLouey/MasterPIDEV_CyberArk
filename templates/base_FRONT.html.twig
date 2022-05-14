@@ -39,6 +39,12 @@
 
 	<!-- Header section -->
 	<header class="header-section">
+	{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+		
 		<div class="header-warp">
 			<div class="header-social d-flex justify-content-end">
 				<p>Follow us:</p>
@@ -53,13 +59,28 @@
 				<a href="base" class="site-logo">
 					<img src="frontoffice/img/logo.png" alt="">
 				</a>
-				<nav class="top-nav-area w-100">
+				<nav class="top-nav-area w-100 {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}"> 
+
+				
 					<div class="user-panel">
-						<a href="/login">Login</a> / <a href="/register">Register</a>
+							{% if app.user %}
+									{% if app.user %}
+										<div class="mb-3">
+            							Hello {{ app.user.username }} enjoy your stay at our site!
+        								</div>
+    								{% endif %}
+ 				 			<a href="{{ path('app_logout') }}" class="button">
+							{{ "Logout" }} 
+							</a>
+							{% else %}
+							<a href="/login">Login</a> / <a href="/register">Register</a>
+							{% endif %}
 					</div>
+        			
+					
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="base">Home</a></li>
+						<li><a href="/">Home</a></li>
 						<li><a href="#">Games</a>
 							<ul class="sub-menu">
 								<li><a href="game-single.html">Game Singel</a></li>
@@ -68,6 +89,7 @@
 						<li><a href="review.html">Reviews</a></li>
 						<li><a href="blog.html">News</a></li>
 						<li><a href="contact.html">Contact</a></li>
+						
 					</ul>
 				</nav>
 			</div>
@@ -307,7 +329,7 @@
 				<img src="frontoffice/img/logo.png" alt="">
 			</a>
 			<ul class="main-menu footer-menu">
-				<li><a href="base">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="">Games</a></li>
 				<li><a href="">Reviews</a></li>
 				<li><a href="">News</a></li>
