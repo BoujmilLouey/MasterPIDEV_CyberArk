@@ -1,0 +1,17 @@
+{% extends 'base_sonia.html.twig' %}
+{% block body %}
+
+    <h1>Create new Categorie</h1>
+{% block container %}
+    {{ form_start(form) }}
+    {{ form_widget(form.label)}}
+    <a href="{{ path('categorie_index') }}">back to list</a>
+    {{ form_end(form) }}
+
+
+
+    {{ include('categorie/_form.html.twig') }}
+
+
+{% endblock %}
+{% endblock %}

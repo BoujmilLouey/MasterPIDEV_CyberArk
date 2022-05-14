@@ -1,0 +1,50 @@
+{% extends 'base-back.html.twig' %}
+    {% block content %}
+<div class="main-panel" style="background-color:#666699;">
+    <div class="content-wrapper"style="background-color:#666699;">
+        <div class="row"style="background-color:#666699;">
+            <div class="col-md-12 grid-margin stretch-card"style="background-color:#666699;">
+                <div class="card"style="background-color:#666699;">
+                    <div class="card-body"style="background-color:#666699;">
+                        <div class="row"style="background-color:#666699;">
+                            <div class="col-md-6" style="background-color:#666699;" >
+        <center><h1>Les commandes</h1></center>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quantité</th>
+                <th>IdCommande</th>
+                <th>IdProduit</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for commandes in commandes %}
+                <tr>
+                    <td>{{ commandes.id}}</td>
+                   <td>{{ commandes.Quantite  }}</td>
+                    <td>{{ commandes.commande.id }}</td>
+                    <td>{{ commandes.produit.id }}</td>
+                    <td>{{ commandes.Price }}</td>
+
+                </tr>
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <tr>
+            <a href="{{path("imprimer")}}" class="btn btn-success" style="background-color:#29293d;"> Imprimer
+            </a>
+        </tr>
+{% endblock %}
+

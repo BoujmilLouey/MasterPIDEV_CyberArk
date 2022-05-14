@@ -1,0 +1,11 @@
+{% extends 'base_sonia.html.twig' %}
+
+{% block title %}New Calender{% endblock %}
+
+{% block body %}
+    <h1>Create new Calender</h1>
+
+    {{ include('calender/_form.html.twig') }}
+
+    <a href="{{ path('calender_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% block content %}
+        <div class="main-panel" style="background-color:#990099;">
+            <div class="content-wrapper"style="background-color:#990099;">
+                <div class="row"style="background-color:#990099;">
+                    <div class="col-md-12 grid-margin stretch-card"style="background-color:#990099;">
+                        <div class="card"style="background-color:#990099;">
+                            <div class="card-body"style="background-color:#990099;">
+                                <div class="row"style="background-color:#990099;">
+                                    <div class="col-md-6" style="background-color:#990099;" >
+                                        {{form_start(form,{'attr':{'novalidate':'novalidate'}})}}                                        {{ form_widget(form) }}
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}
+

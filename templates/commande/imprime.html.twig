@@ -1,0 +1,24 @@
+    {% block content %}
+
+        <h1>Les commandes</h1>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Quantité</th>
+                <th>IdCommande</th>
+                <th>IdProduit</th>
+                <th>Price</th>
+            </tr>
+            {% for commandes in commandes %}
+                <tr>
+                    <td>{{ commandes.id}}</td>
+                    <td>{{ commandes.Quantite  }}</td>
+                    <td>{{ commandes.commande.id }}</td>
+                    <td>{{ commandes.produit.id }}</td>
+                    <td>{{ commandes.Price }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+{% endblock %}
+

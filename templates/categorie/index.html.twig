@@ -1,0 +1,38 @@
+{% extends 'base_sonia.html.twig' %}
+
+{% block container %}
+
+{% block body %}
+    <h1>Categorie index</h1>
+
+    <table class="table text-white">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.label }}</td>
+                <td>
+                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categorie_new') }}">Create new</a>
+{% endblock %}
+{% endblock %}

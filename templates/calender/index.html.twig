@@ -1,0 +1,49 @@
+{% extends 'base_sonia.html.twig' %}
+
+{% block title %}Calender index{% endblock %}
+
+{% block body %}
+    <h1>Calender index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Description</th>
+                <th>All_day</th>
+                <th>Background_color</th>
+                <th>Border_color</th>
+                <th>Text_color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calender in calenders %}
+            <tr>
+                <td>{{ calender.id }}</td>
+                <td>{{ calender.title }}</td>
+                <td>{{ calender.start ? calender.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calender.end ? calender.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calender.description }}</td>
+                <td>{{ calender.allDay ? 'Yes' : 'No' }}</td>
+                <td>{{ calender.backgroundColor }}</td>
+                <td>{{ calender.borderColor }}</td>
+                <td>{{ calender.textColor }}</td>
+                <td>
+                    <a href="{{ path('calender_show', {'id': calender.id}) }}">show</a>
+                    <a href="{{ path('calender_edit', {'id': calender.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calender_new') }}">Create new</a>
+{% endblock %}

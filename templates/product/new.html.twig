@@ -1,0 +1,14 @@
+{% extends 'base_sonia.html.twig' %}
+{% block body %}
+
+{% block container %}
+<h2>new Product</h2>
+
+                                            {{form_start(form)}}   {{ form_widget(form) }}
+                                            {{ form_end(form) }}
+
+
+
+    <a href="{{ path('product_index') }}">backtolist</a>
+{% endblock %}
+{% endblock %}

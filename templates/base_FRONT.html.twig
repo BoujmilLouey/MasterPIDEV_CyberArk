@@ -50,22 +50,39 @@
 			</div>
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
-				<a href="base" class="site-logo">
+				<a href="/" class="site-logo">
 					<img src="frontoffice/img/logo.png" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
-						<a href="/login">Login</a> / <a href="/register">Register</a>
+							{% if app.user %}
+									{% if app.user %}
+										<div class="mb-3">
+            							Hello {{ app.user.username }} enjoy your stay at our site!
+        								</div>
+    								{% endif %}
+ 				 			<a href="{{ path('app_logout') }}" class="button">
+							{{ "Logout" }} 
+							</a>
+							{% if app.user.username  == ('Louey') %}
+							<a href="/back">AdminTab</a>
+							{% endif %}
+							{% else %}
+							<a href="/login">Login</a> / <a href="/register">Register</a>
+							{% endif %}
+
+							
+							
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
-						<li><a href="base">Home</a></li>
-						<li><a href="#">Games</a>
+						<li><a href="/">Home</a></li>
+						<li><a href="/cart">Panier</a>
 							<ul class="sub-menu">
 								<li><a href="game-single.html">Game Singel</a></li>
 							</ul>
 						</li>
-						<li><a href="review.html">Reviews</a></li>
+						<li><a href="/products">Produits</a></li>
 						<li><a href="blog.html">News</a></li>
 						<li><a href="contact.html">Contact</a></li>
 					</ul>
