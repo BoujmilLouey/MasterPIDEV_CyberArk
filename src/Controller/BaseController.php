@@ -14,11 +14,10 @@ class BaseController extends AbstractController
      */
     public function index(): Response
     {
-        $user = new User();
-        $roles = $user->getRoles();
-        $roles1 =implode($roles);
+        
+        
         return $this->render('base_FRONT.html.twig', [
-            'controller_name' => 'BaseController', 'test' => $roles1
+            'controller_name' => 'BaseController'
         ]);
     }
     /**
