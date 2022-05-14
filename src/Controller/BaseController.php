@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BaseController extends AbstractController
 {
     /**
-     * @Route("/", name="base")
+     * @Route("/base", name="base")
      */
     public function index(): Response
     {
@@ -22,7 +22,6 @@ class BaseController extends AbstractController
      */
     public function index2(): Response
     {
-        $this->addFlash('success', 'You have succefully changed your password.');
         return $this->render('reset_password/rstpwd.html.twig', [
             'controller_name' => 'BaseController',
         ]);
