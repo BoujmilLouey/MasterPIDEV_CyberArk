@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class CommmandeController extends AbstractController
 {
     /**
@@ -30,7 +30,7 @@ class CommmandeController extends AbstractController
     /**
      * @Route("/commmande", name="commmande")
      */
-    public function ValidCom(UserRepository $user,SessionInterface $session, ProductsRepository $productRepository): Response
+    public function ValidCom(UserRepository $usrRep,SessionInterface $session, ProductsRepository $productRepository, AuthenticationUtils $authenticationUtils): Response
     {
         $panier = $session->get("panier", []);
 
@@ -47,7 +47,9 @@ class CommmandeController extends AbstractController
             $total += $product->getPrice() * $quantite;
         }
         $order=new Commande();
-        $order->setUser($user->find(1));
+        $user=$this->getUser()->getId();
+        $currentuser=$usrRep->findOneBy(array('id'=>$user));
+        $order->setUser($currentuser);
         $order->setDateCommande(new \DateTime());
         $order->setMontantCommande($total);
         $entityManager = $this->getDoctrine()->getManager();
@@ -62,9 +64,12 @@ class CommmandeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($productOrder);
             $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('registration');
+        }
+        $session->remove("panier");
+        $this->addFlash('success', 'Your commande a ete valider');
+
+        return $this->redirectToRoute('base');
     }
 
     /**

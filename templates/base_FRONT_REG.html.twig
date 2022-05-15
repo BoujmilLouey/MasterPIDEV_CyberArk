@@ -33,8 +33,17 @@
 </head>
     <body>
 <!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
 	<!-- Header section -->
 	<header class="header-section">
+	{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
 		<div class="header-warp">
 			<div class="header-social d-flex justify-content-end">
 				<p>Follow us:</p>
@@ -47,30 +56,66 @@
 			<div class="header-bar-warp d-flex">
 				<!-- site logo -->
 				<a href="/" class="site-logo">
-					<img src="{{ asset('frontoffice/img/logo.png') }}" alt="base">
+					<img src="frontoffice/img/logo.png" alt="">
 				</a>
 				<nav class="top-nav-area w-100">
 					<div class="user-panel">
-						<a href="/login">Login</a> / <a href="/register">Register</a>
+							{% if app.user %}
+									{% if app.user %}
+										<div class="mb-3">
+            							Hello {{ app.user.username }} enjoy your stay at our site!
+        								</div>
+    								{% endif %}
+ 				 			<a href="{{ path('app_logout') }}" class="button">
+							{{ "Logout" }} 
+							</a>
+							{% if app.user.username  == ('Louey') %}
+							<a href="/user">AdminTab</a>
+							{% endif %}
+							{% else %}
+							<a href="/login">Login</a> / <a href="/register2">Register</a>
+							{% endif %}
+
+							
+							
 					</div>
 					<!-- Menu -->
 					<ul class="main-menu primary-menu">
 						<li><a href="/">Home</a></li>
-						<li><a href="Panier">Panier</a>
+						<li><a href="/cart">Panier</a>
 							<ul class="sub-menu">
 								<li><a href="game-single.html">Game Singel</a></li>
 							</ul>
 						</li>
 						<li><a href="/products">Produits</a></li>
-						<li><a href="blog.html">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="/events/reservation/new">Evenement</a></li>
+						<li><a href="/contact">Contact</a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</header>
 	<!-- Header section end -->
-
+<!-- Hero section -->
+	<section class="hero-section overflow-hidden">
+		<div class="hero-slider owl-carousel">
+			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="frontoffice/img/slider-bg-1.jpg">
+				<div class="container">
+					<h2>CyberArk </h2>
+					<p>The leading platform to make you able to reach ,<br>the ultimate pro player title.</p>
+					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
+				</div>
+			</div>
+			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="img/slider-bg-2.jpg">
+				<div class="container">
+					<h2>CyberArk </h2>
+					<p>Don't hesitate to enjoy all ,<br>of our site has to offer , enjoy your stay.</p>
+					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end-->
 
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="{{ asset('frontoffice/img/page-top-bg/4.jpg') }}">

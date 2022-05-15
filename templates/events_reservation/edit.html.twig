@@ -1,0 +1,15 @@
+{% extends "base_BACK.html.twig" %}
+{% block back_content %}
+    {% block body %}
+    <h1>Edit EventsReservation</h1>
+
+    {{ include('events_reservation/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_events_reservation_index') }}">back to list</a>
+
+    {{ include('events_reservation/_delete_form.html.twig') }}
+{% endblock %}
+{% endblock %}
+{% block back_footer %}
+{% endblock %}
+

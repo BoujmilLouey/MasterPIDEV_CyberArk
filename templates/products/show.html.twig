@@ -1,0 +1,43 @@
+{% extends 'base_BACK.html.twig' %}
+
+{% block title %}Products index{% endblock %}
+
+{% block back_content %}
+
+    <h1>Products index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.image }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                   
+                    <a href="{{ path('pp_edit', {'id': product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <tr>
+        <a href="{{path("stat")}}" class="btn btn-success" style="background-color:#29293d;"> Statistique
+        </tr>
+
+    <a href="{{ path('pp_new') }}">Create new</a>
+{% endblock %}

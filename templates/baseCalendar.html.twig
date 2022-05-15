@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <form action="{{ path('app_events_reservation_new')}}">
+        <input style="margin-left: 700px; width: 100px; height: 50px"  type="submit" class="btn btn-info" value="Reserver"/>
+    </form>
+     <form action="{{ path('base')}}">
+        <input style="margin-left: 700px; width: 100px; height: 50px"  type="submit" class="btn btn-info" value="Retour"/>
+    </form>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.css" integrity="sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.0/main.min.js" integrity="sha256-DBxkGZLxKsLKhz054qUpBqtotG00r9AELGpSigJujLg=" crossorigin="anonymous"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

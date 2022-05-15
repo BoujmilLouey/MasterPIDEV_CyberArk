@@ -9,12 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class BackController extends AbstractController
 {
     /**
-     * @Route("/back", name="app_back")
+     * @Route("/admin", name="app_back")
      */
-    public function index(): Response
+    public function index1(): Response
     {
-        return $this->render('base_BACK.html.twig', [
-            'controller_name' => 'BackController',
-        ]);
+        return $this->render('base_BACK.html.twig');
     }
 }

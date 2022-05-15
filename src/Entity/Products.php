@@ -37,6 +37,16 @@ class Products
      * @ORM\ManyToMany(targetEntity=Commande::class, mappedBy="produit")
      */
     private $commandes;
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $datefin;
+
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $datedeb;
 
 
     public function __construct()
@@ -120,6 +130,30 @@ class Products
     public function setCommande(?Commande $commande): self
     {
         $this->commande = $commande;
+
+        return $this;
+    }
+    public function getDatefin(): ?\DateTimeInterface
+    {
+        return $this->datefin;
+    }
+
+    public function setDatefin(?\DateTimeInterface $datefin): self
+    {
+        $this->datefin = $datefin;
+
+        return $this;
+    }
+
+
+    public function getDatedeb(): ?\DateTimeInterface
+    {
+        return $this->datedeb;
+    }
+
+    public function setDatedeb(?\DateTimeInterface $datedeb): self
+    {
+        $this->datedeb = $datedeb;
 
         return $this;
     }

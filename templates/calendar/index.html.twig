@@ -1,0 +1,57 @@
+{% extends "base_BACK.html.twig" %}
+
+{% block back_content %}
+{% block title %}La Listes Des Evenements{% endblock %}
+
+{% block body %}
+    <h1>Events List</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Formateur</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Description</th>
+                <th>Allday</th>
+                <th>Background_color</th>
+                <th>Boarder_color</th>
+                <th>Texte_color</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendar in calendars %}
+            <tr>
+                <td>{{ calendar.id }}</td>
+                <td>{{ calendar.Titre }}</td>
+                <td>{{ calendar.User }}   </td>
+                <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendar.description }}</td>
+                <td>{{ calendar.allday ? 'Yes' : 'No' }}</td>
+                <td>{{ calendar.backgroundColor }}</td>
+                <td>{{ calendar.boarderColor }}</td>
+                <td>{{ calendar.texteColor }}</td>
+                <td>
+                    <a href="{{ path('calendar_show', {'id': calendar.id}) }}">show</a>
+                    <a href="{{ path('calendar_edit', {'id': calendar.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendar_new') }}">Create new</a>
+    <div>{{ knp_pagination_render(calendars) }}</div>
+
+{% endblock %}
+{% endblock %}
+{% block back_footer %}
+{% endblock %}

@@ -1,11 +1,11 @@
+{% extends 'base_BACK.html.twig' %}
 
+{% block title %}New Products{% endblock %}
 
-<center>
-    <div class="container" >
-        <div class="row">
-            <div class="col-xl-9 col-lg-8 col-md-7">
-        <h1>Hello admin <br> it's your dashboard</h1>
-    </div>
-        </div></div>
+{% block back_content %}
+    <h1>Create new Products</h1>
 
-</center>
+    {{ include('products/_form.html.twig') }}
+
+    <a href="{{ path('productsadmin') }}">back to list</a>
+{% endblock %}

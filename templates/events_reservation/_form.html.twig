@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+
+<table >
+<tr>
+        <a href="{{path("events_calendar")}}" class="btn " > Calendrier des evenement 
+        </tr>
+    <tbody >
+    <tr >
+        <th>Numero de Telephone</th>
+        <td>{{ form_widget(form.tel) }}</td>
+        <td>{{ form_errors(form.tel) }}</br></br></td>
+    </tr>
+
+    <tr>
+        <th>Nombre de places a reservés</th>
+        <td>{{ form_widget(form.Reservations) }}</td> </br> <td>{{ form_errors(form.Reservations) }}</td></br></br>
+    </tr>
+
+    <th>Liste Des Evenements</th>
+    <td>{{ form_widget(form.LesEvenements) }}</td>
+    <td>{{ form_errors(form.LesEvenements) }}</br></br></td>
+    </tr>
+
+    <th></th>
+    <td><button class="btn">{{ button_label|default('Validé la reservation') }}</button></td>
+    
+    </tbody>
+</table>
+
+{{ form_end(form) }}
+

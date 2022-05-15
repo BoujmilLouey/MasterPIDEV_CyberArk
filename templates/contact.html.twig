@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="zxx">
+<head>
 	<title>EndGam - Gaming Magazine Template</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="EndGam Gaming Magazine Template">
@@ -14,15 +14,15 @@
 
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/bootstrap.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/font-awesome.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/slicknav.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/owl.carousel.min.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/magnific-popup.css') }}"/>
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/animate.css') }}"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/slicknav.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
 
 	<!-- Main Stylesheets -->
-	<link rel="stylesheet" href="{{ asset('frontoffice/css/style.css') }}"/>
+	<link rel="stylesheet" href="css/style.css"/>
 
 
 	<!--[if lt IE 9]>
@@ -31,7 +31,7 @@
 	<![endif]-->
 
 </head>
-    <body>
+<body>
 <!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -97,52 +97,74 @@
 	</header>
 	<!-- Header section end -->
 
-<!-- Hero section -->
-	<section class="hero-section overflow-hidden">
-		<div class="hero-slider owl-carousel">
-			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="frontoffice/img/slider-bg-1.jpg">
-				<div class="container">
-					<h2>CyberArk </h2>
-					<p>The leading platform to make you able to reach ,<br>the ultimate pro player title.</p>
-					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
-				</div>
-			</div>
-			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="img/slider-bg-2.jpg">
-				<div class="container">
-					<h2>CyberArk </h2>
-					<p>Don't hesitate to enjoy all ,<br>of our site has to offer , enjoy your stay.</p>
-					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Hero section end-->
+
 	<!-- Page top section -->
-	<section class="page-top-section set-bg" data-setbg="{{ asset('frontoffice/img/page-top-bg/4.jpg') }}">
+	<section class="page-top-section set-bg" data-setbg="img/page-top-bg/4.jpg">
 		<div class="page-info">
-			<h2>Login</h2>
+			<h2>Contact</h2>
 			<div class="site-breadcrumb">
 				<a href="">Home</a>  /
-				<span>Login</span>
+				<span>Contact</span>
 			</div>
 		</div>
 	</section>
 	<!-- Page top end-->
 
-        <section class="contact-page">
-		<div class ="container">
-    <div class ="row">
-    {% block home1 %}
 
-    {% endblock %}
-    </div>
-    </div>
-        </section>
+	<!-- Contact page -->
+	<section class="contact-page">
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="col-lg-20 order-1 order-lg-2 contact-text text-white">
+					<h1>Thank you for chosing our site </h1>
+                    <h4>Project members : Louey Boujmil Emna Masmoudi Yessine Baccouche Sonia Karmi</h4>
+					<p>This site is a project for PIDEV for the third year in Esprit</p>
+					<div class="cont-info">
+						<div class="ci-icon"><img src="img/icons/location.png" alt=""></div>
+						<div class="ci-text">Esprit Ingenieurie, Ariana Soghra, Tunis</div>
+					</div>
+					<div class="cont-info">
+						<div class="ci-icon"><img src="img/icons/phone.png" alt=""></div>
+						<div class="ci-text">+216 25 289 753</div>
+					</div>
+					<div class="cont-info">
+						<div class="ci-icon"><img src="img/icons/mail.png" alt=""></div>
+						<div class="ci-text">noreply.cyberark@gmail.com</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Contact page end-->
 
-<!-- Footer section -->
+
+	<!-- Newsletter section -->
+	<section class="newsletter-section">
+		<div class="container">
+			<h2>Subscribe to our newsletter</h2>
+			<form class="newsletter-form">
+				<input type="text" placeholder="ENTER YOUR E-MAIL">
+				<button class="site-btn">subscribe <img src="img/icons/double-arrow.png" alt="#"/></button>
+			</form>
+		</div>
+	</section>
+	<!-- Newsletter section end -->
+
+
+	<!-- Footer section -->
 	<footer class="footer-section">
 		<div class="container">
-
+			<div class="footer-left-pic">
+				<img src="img/footer-left-pic.png" alt="">
+			</div>
+			<div class="footer-right-pic">
+				<img src="img/footer-right-pic.png" alt="">
+			</div>
+			<a href="#" class="footer-logo">
+				<img src="./img/logo.png" alt="">
+			</a>
 			<ul class="main-menu footer-menu">
 				<li><a href="">Home</a></li>
 				<li><a href="">Games</a></li>
@@ -162,13 +184,15 @@
 	</footer>
 	<!-- Footer section end -->
 
-        	<!--====== Javascripts & Jquery ======-->
-	<script src="{{ asset('frontoffice/js/jquery-3.2.1.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/jquery.slicknav.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/jquery.sticky-sidebar.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/jquery.magnific-popup.min.js') }}"></script>
-	<script src="{{ asset('frontoffice/js/main.js') }}"></script>
-    </body>
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.sticky-sidebar.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
 </html>

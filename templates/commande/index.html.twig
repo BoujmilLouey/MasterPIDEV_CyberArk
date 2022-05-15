@@ -1,14 +1,15 @@
-{% extends 'base-back.html.twig' %}
-    {% block content %}
-<div class="main-panel" style="background-color:#666699;">
-    <div class="content-wrapper"style="background-color:#666699;">
-        <div class="row"style="background-color:#666699;">
-            <div class="col-md-12 grid-margin stretch-card"style="background-color:#666699;">
-                <div class="card"style="background-color:#666699;">
-                    <div class="card-body"style="background-color:#666699;">
-                        <div class="row"style="background-color:#666699;">
-                            <div class="col-md-6" style="background-color:#666699;" >
+{% extends 'base_BACK.html.twig' %}
+    {% block back_content %}
+
         <center><h1>Les commandes</h1></center>
+        <tr>
+            <a href="{{path("imprimer")}}" class="btn btn-success" style="background-color:#29293d;"> Imprimer
+            </a>
+        </tr>
+        <tr>
+            <a href="{{path("stats")}}" class="btn btn-success" style="background-color:#29293d;"> Statistique
+            </a>
+        </tr>
         <table class="table">
             <thead>
             <tr>
@@ -42,9 +43,6 @@
         </div>
     </div>
 </div>
-        <tr>
-            <a href="{{path("imprimer")}}" class="btn btn-success" style="background-color:#29293d;"> Imprimer
-            </a>
-        </tr>
+        
 {% endblock %}
 

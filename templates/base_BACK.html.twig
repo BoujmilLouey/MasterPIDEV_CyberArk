@@ -34,10 +34,11 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="back" class="logo">
+    <a href="/" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
@@ -332,15 +333,60 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview menu-open">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span>Gestion Utilisateur</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="user"><i class="fa fa-circle-o"></i> Dashboard </a></li>
+            <li><a href="/user"><i class="fa fa-circle-o"></i> List Des Utilisateurs </a></li>
           </ul>
         </li>
+           <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Gestion Evenement</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/calendar"><i class="fa fa-circle-o"></i> List Des Evenements </a></li>
+          </ul>
+          </li>
+          <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Gestion Reservations</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/events/reservation/"><i class="fa fa-circle-o"></i> List Des Reservations </a></li>
+          </ul>
+          </li>
+          <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Gestion Produits</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/adminproducts"><i class="fa fa-circle-o"></i> List Des Produits </a></li>
+          </ul>
+          </li>
+          <li class="active treeview menu-open">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Gestion Commande</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/affichecommmande "><i class="fa fa-circle-o"></i> List Des Commandes </a></li>
+          </ul>
+        </li>
+        
       </ul>
     </section>
     <!-- /.sidebar -->
@@ -353,10 +399,39 @@
     <div class ="container">
     <div class ="row">
     {% block back_content %}
+    
+    {% endblock %}
+    </div>
+    </div>
+    <div class ="container">
+    <div class ="row">
+    {% block ts %}
 
     {% endblock %}
     </div>
     </div>
+    <div class ="container">
+    <div class ="row">
+    {% block javascripts %}
+
+    {% endblock %}
+    </div>
+    </div>
+    <div class ="container">
+    <div class ="row">
+    {% block nav %}
+
+    {% endblock %}
+    </div>
+    </div>
+    <div class ="container">
+    <div class ="row">
+    {% block stylesheets %}
+
+    {% endblock %}
+    </div>
+    </div>
+    
     </section>
 
     <!-- Main content -->

@@ -53,6 +53,7 @@ class CartController extends AbstractController
 
         // On sauvegarde dans la session
         $session->set("panier", $panier);
+        $this->addFlash('success', 'Votre produit a ete ajouter au panier');
 
         return $this->redirectToRoute("cart_index");
     }
@@ -76,6 +77,7 @@ class CartController extends AbstractController
 
         // On sauvegarde dans la session
         $session->set("panier", $panier);
+        $this->addFlash('success', 'Votre produit a ete retier du panier');
 
         return $this->redirectToRoute("cart_index");
     }
@@ -95,6 +97,7 @@ class CartController extends AbstractController
 
         // On sauvegarde dans la session
         $session->set("panier", $panier);
+        $this->addFlash('success', 'Votre produit a ete retier du panier');
 
         return $this->redirectToRoute("cart_index");
     }
@@ -105,6 +108,7 @@ class CartController extends AbstractController
     public function deleteAll(SessionInterface $session)
     {
         $session->remove("panier");
+        $this->addFlash('success', 'Votre panier a ete vider');
 
         return $this->redirectToRoute("cart_index");
     }

@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use App\Validator as fullnameAssert;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -84,6 +85,15 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $IsBanned=false;
+    /**
+     * @ORM\OneToMany(targetEntity=EventsReservation::class, mappedBy="User")
+     */
+    private $eventsReservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Calendar::class, mappedBy="User")
+     */
+    private $calendars;
 
     public function getId(): ?int
     {
@@ -220,4 +230,74 @@ class User implements UserInterface
 
         return $this;
     }
+    public function __construct()
+    {
+        $this->eventsReservations = new ArrayCollection();
+        $this->calendars = new ArrayCollection();   
+    }
+    public function __toString()
+    {
+       return $this->getUsername();
+    }
+    /**
+     * @return Collection<int, EventsReservation>
+     */
+    public function getEventsReservations(): int
+    {
+        return $this->eventsReservations;
+    }
+
+    public function addEventsReservation(EventsReservation $eventsReservation): self
+    {
+        if (!$this->eventsReservations->contains($eventsReservation)) {
+            $this->eventsReservations[] = $eventsReservation;
+            $eventsReservation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEventsReservation(EventsReservation $eventsReservation): self
+    {
+        if ($this->eventsReservations->removeElement($eventsReservation)) {
+            // set the owning side to null (unless already changed)
+            if ($eventsReservation->getUser() === $this) {
+                $eventsReservation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Calendar>
+     */
+    public function getCalendars(): int
+    {
+        return $this->calendars;
+    }
+
+    public function addCalendar(Calendar $calendar): self
+    {
+        if (!$this->calendars->contains($calendar)) {
+            $this->calendars[] = $calendar;
+            $calendar->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCalendar(Calendar $calendar): self
+    {
+        if ($this->calendars->removeElement($calendar)) {
+            // set the owning side to null (unless already changed)
+            if ($calendar->getUser() === $this) {
+                $calendar->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

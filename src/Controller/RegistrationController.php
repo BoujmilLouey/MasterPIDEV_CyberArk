@@ -132,36 +132,4 @@ class RegistrationController extends AbstractController
             "Attachment" => false
         ]);
     }
-    /**
-     * @Route("/registration", name="registration")
-     */
-    public function registration(Request $request, \Swift_Mailer $mailer): Response
-    {
-        $form = $this->createForm(RegistrationType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $registration = $form->getData();
-            $message = (new \Swift_Message('Validation Commande'))
-                ->setFrom('noreply.cyberark@gmail.com')
-                ->setTo($registration['email'])
-                ->setBody(
-                    $this->renderView(
-                        'reg/val.html.twig', compact('registration')
-                    ),
-                    'text/html'
-                );
-
-            // On envoie le message
-
-            $mailer->send($message);
-
-            $this->addFlash('message', 'Le message a bien été envoyé');
-            return $this->redirectToRoute('product_index');
-        }
-
-        return $this->render('reg/index.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
 }

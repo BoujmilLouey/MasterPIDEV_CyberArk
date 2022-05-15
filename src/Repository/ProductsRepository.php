@@ -44,6 +44,17 @@ class ProductsRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    /**
+     * Returns number of "products" per day
+     * @return void
+     */
+    public function countByDate(){
+
+        $query = $this->getEntityManager()->createQuery("
+            SELECT SUBSTRING(a.datefin, 1, 10) as datefin, COUNT(a) as count FROM App\Entity\Products a GROUP BY datefin
+        ");
+        return $query->getResult();
+    }
 
     // /**
     //  * @return Products[] Returns an array of Products objects

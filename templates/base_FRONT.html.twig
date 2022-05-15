@@ -39,6 +39,11 @@
 
 	<!-- Header section -->
 	<header class="header-section">
+	{% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
 		<div class="header-warp">
 			<div class="header-social d-flex justify-content-end">
 				<p>Follow us:</p>
@@ -65,10 +70,10 @@
 							{{ "Logout" }} 
 							</a>
 							{% if app.user.username  == ('Louey') %}
-							<a href="/back">AdminTab</a>
+							<a href="/user">AdminTab</a>
 							{% endif %}
 							{% else %}
-							<a href="/login">Login</a> / <a href="/register">Register</a>
+							<a href="/login">Login</a> / <a href="/register2">Register</a>
 							{% endif %}
 
 							
@@ -83,8 +88,8 @@
 							</ul>
 						</li>
 						<li><a href="/products">Produits</a></li>
-						<li><a href="blog.html">News</a></li>
-						<li><a href="contact.html">Contact</a></li>
+						<li><a href="/events/reservation/new">Evenements</a></li>
+						<li><a href="/contact">Contact</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -100,14 +105,14 @@
 				<div class="container">
 					<h2>CyberArk </h2>
 					<p>The leading platform to make you able to reach ,<br>the ultimate pro player title.</p>
-					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
+					<a href="/contact" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
 				</div>
 			</div>
 			<div class="hero-item set-bg d-flex align-items-center justify-content-center text-center" data-setbg="img/slider-bg-2.jpg">
 				<div class="container">
 					<h2>CyberArk </h2>
-					<p>Fusce erat dui, venenatis et erat in, vulputate dignissim lacus. Donec vitae tempus dolor,<br>sit amet elementum lorem. Ut cursus tempor turpis.</p>
-					<a href="#" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
+					<p>Don't hesitate to enjoy all ,<br>of our site has to offer , enjoy your stay.</p>
+					<a href="/contact" class="site-btn">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
 				</div>
 			</div>
 		</div>
@@ -148,58 +153,14 @@
 	</section>
 	<!-- Intro section end -->
 
-
+{% block textbanner %}
+				{% endblock %}
 	<!-- Blog section -->
 	<section class="blog-section spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-9 col-lg-8 col-md-7">
-					<div class="section-title text-white">
-						<h2>Latest News</h2>
-					</div>
-					<ul class="blog-filter">
-						<li><a href="#">Racing</a></li>
-						<li><a href="#">Shooters</a></li>
-						<li><a href="#">Strategy</a></li>
-						<li><a href="#">Online</a></li>
-					</ul>
-					<!-- Blog item -->
-					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="frontoffice/img/blog/1.jpg" alt="">
-						</div>
-						<div class="blog-text text-box text-white">
-							<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>
-							<h3>The best online game is out now!</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.....</p>
-							<a href="#" class="read-more">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
-						</div>
-					</div>
-					<!-- Blog item -->
-					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="frontoffice/img/blog/2.jpg" alt="">
-						</div>
-						<div class="blog-text text-box text-white">
-							<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>
-							<h3>The best online game is out now!</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.....</p>
-							<a href="#" class="read-more">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
-						</div>
-					</div>
-					<!-- Blog item -->
-					<div class="blog-item">
-						<div class="blog-thumb">
-							<img src="frontoffice/img/blog/3.jpg" alt="">
-						</div>
-						<div class="blog-text text-box text-white">
-							<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>
-							<h3>The best online game is out now!</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius-mod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Lorem ipsum dolor sit amet, consecte-tur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.....</p>
-							<a href="#" class="read-more">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
-						</div>
-					</div>
-				</div>
+				
+				
 				<div class="col-xl-3 col-lg-4 col-md-5 sidebar">
 					<div id="stickySidebar">
 						<div class="widget-item">
@@ -290,7 +251,7 @@
 				<div class="top-meta">11.11.18  /  in <a href="">Games</a></div>
 				<h3>The game you’ve been waiting  for is out now</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquamet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum posuere porttitor justo id pellentesque. Proin id lacus feugiat, posuere erat sit amet, commodo ipsum. Donec pellentesque vestibulum metus...</p>
-				<a href="#" class="read-more">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
+				<a href="sonia\login.html" class="read-more">Read More  <img src="frontoffice/img/icons/double-arrow.png" alt="#"/></a>
 			</div>
 		</div>
 	</section>
@@ -340,6 +301,7 @@
 			<div class="copyright"><a href="">Colorlib</a> 2018 @ All rights reserved</div>
 		</div>
 	</footer>
+
 	<!-- Footer section end -->
 
 
